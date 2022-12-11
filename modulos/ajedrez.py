@@ -15,6 +15,8 @@ tablero_ajedrez = {
     (7,0): fichas_negras[0], (7,1): fichas_negras[1], (7,2): fichas_negras[2], (7,3): fichas_negras[3], (7,4): fichas_negras[4], (7,5): fichas_negras[5], (7,6): fichas_negras[6], (7,7): fichas_negras[7]
 }
 
+movimiento = 0
+
 
 def imprimir_tablero_inicial():
     print('    a   b   c   d   e   f   g   h')
@@ -28,6 +30,14 @@ def imprimir_tablero_inicial():
     print('    a   b   c   d   e   f   g   h')
 
 
+
+
+def preguntar_movimientos():
+    hacer_movimiento = input('¿Desea hacer un movimiento? (s/n): ')
+    if hacer_movimiento == 's':
+        mover_ficha()
+        
+        
 def mover_ficha():
     print('Ingrese el movimiento de la ficha')
     print('Ejemplo: a2 a4')
@@ -35,18 +45,11 @@ def mover_ficha():
     return movimiento
 
 
-def preguntar_movimientos():
-    hacer_movimiento = input('¿Desea hacer un movimiento? (s/n): ')
-    if hacer_movimiento == 's':
-        mover_ficha()
-
-def tablero_
-
-
-
-
+def movimientos_tablero():
+    pass                            #  TODO: Implementar esta función, que debe actualizar el tablero de ajedrez con los movimientos realizados por las fichas.
 
 
 def jugar ():
     imprimir_tablero_inicial()
     preguntar_movimientos()
+    
