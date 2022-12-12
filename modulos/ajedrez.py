@@ -67,11 +67,18 @@ def mover_ficha():
     
 
 
-def jugar ():
-    while True:
+def jugar():
     imprimir_tablero_inicial()
-    preguntar_movimientos()
-    
-
-
-
+    while True:
+        preguntar_movimientos()
+        mover_ficha()
+        fichero.write(str(tablero_ajedrez))
+        fichero.write('\n')
+        if tablero_ajedrez[(0,0)] == ' ' and tablero_ajedrez[(0,1)] == ' ' and tablero_ajedrez[(0,2)] == ' ' and tablero_ajedrez[(0,3)] == ' ' and tablero_ajedrez[(0,4)] == ' ' and tablero_ajedrez[(0,5)] == ' ' and tablero_ajedrez[(0,6)] == ' ' and tablero_ajedrez[(0,7)] == ' ':
+            print('Ganó el jugador 2')
+            fichero.close()
+            os._exit(0)
+        if tablero_ajedrez[(7,0)] == ' ' and tablero_ajedrez[(7,1)] == ' ' and tablero_ajedrez[(7,2)] == ' ' and tablero_ajedrez[(7,3)] == ' ' and tablero_ajedrez[(7,4)] == ' ' and tablero_ajedrez[(7,5)] == ' ' and tablero_ajedrez[(7,6)] == ' ' and tablero_ajedrez[(7,7)] == ' ':
+            print('Ganó el jugador 1')
+            fichero.close()
+            os._exit(0)
