@@ -6,10 +6,12 @@ El programa debe guardar el tablero inicial en un fichero con el nombre que elij
 
 
 ♜	♞	♝	♛	♚	♝	♞	♜
+
 ♟	♟	♟	♟	♟	♟	♟	♟
 
 
 ♙	♙	♙	♙	♙	♙	♙	♙
+
 ♖	♘	♗	♕	♔	♗	♘	♖
 
 
