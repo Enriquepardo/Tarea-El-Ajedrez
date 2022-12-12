@@ -1,3 +1,4 @@
+import os
 
 
 fichas_negras = ['♜', '♞', '♝',	'♛'	, '♚', '♝',	'♞', '♜', '♟', '♟',	'♟', '♟', '♟', '♟', '♟', '♟']
@@ -15,11 +16,16 @@ tablero_ajedrez = {
     (7,0): fichas_negras[0], (7,1): fichas_negras[1], (7,2): fichas_negras[2], (7,3): fichas_negras[3], (7,4): fichas_negras[4], (7,5): fichas_negras[5], (7,6): fichas_negras[6], (7,7): fichas_negras[7]
 }
 
-movimiento = 0
 
+nombre_fichero = input('Ingrese el nombre del fichero, donde se van a guardar los movimientos: \n')
+fichero = open(nombre_fichero, 'w')
+
+
+print('--------Este es el tablero inicial del ajedrez:--------')
 
 def imprimir_tablero_inicial():
-    print('    a   b   c   d   e   f   g   h')
+    
+    print('    0   1   2   3   4   5   6   7')
     print('  +---+---+---+---+---+---+---+---+')
     for i in range(8):
         print(i, end=' ')
@@ -27,8 +33,7 @@ def imprimir_tablero_inicial():
             print('|', tablero_ajedrez[(i,j)], end=' ')
         print('|', i)
         print('  +---+---+---+---+---+---+---+---+')
-    print('    a   b   c   d   e   f   g   h')
-
+    print('    0   1   2   3   4   5   6   7')
 
 
 
@@ -36,20 +41,37 @@ def preguntar_movimientos():
     hacer_movimiento = input('¿Desea hacer un movimiento? (s/n): ')
     if hacer_movimiento == 's':
         mover_ficha()
+    elif hacer_movimiento == 'n':
+        print('Gracias por jugar!')
+        fichero.close()
+        os._exit(0)
+    else:
+        print('Por favor, ingrese una opción válida.')
+        preguntar_movimientos()
         
         
 def mover_ficha():
-    print('Ingrese el movimiento de la ficha')
-    print('Ejemplo: a2 a4')
-    movimiento = input()
-    return movimiento
-
-
-def movimientos_tablero():
-    pass                            #  TODO: Implementar esta función, que debe actualizar el tablero de ajedrez con los movimientos realizados por las fichas.
+        print('Ingrese el movimiento de la ficha:')
+        fila_ficha = int(input('Ingrese la fila de la ficha: '))
+        columna_ficha = int(input('Ingrese la columna de la ficha: '))
+        print('La ficha que desea mover es: ', tablero_ajedrez[(fila_ficha, columna_ficha)])
+        
+        movimiento_fila = int(input('Ingrese la fila a la que desea mover la ficha: '))
+        movimiento_columna = int(input('Ingrese la columna a la que desea mover la ficha: '))
+        
+        tablero_ajedrez[movimiento_fila, movimiento_columna] = tablero_ajedrez[(fila_ficha, columna_ficha)]
+        tablero_ajedrez[fila_ficha, columna_ficha] = ' '
+        
+        print('\n--------Este es el tablero actualizado:--------')
+        imprimir_tablero_inicial()
+    
 
 
 def jugar ():
+    while True:
     imprimir_tablero_inicial()
     preguntar_movimientos()
     
+
+
+
